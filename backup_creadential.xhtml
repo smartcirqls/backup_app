@@ -1,0 +1,28 @@
+
+<form name="myForm"  method="post">
+<p>Splunk username: <input type="text" name="username"/></p>
+<p>Splunk password: <input type="text" name="pwd"/></p>
+<p>Splunk management port: <input type="text" name="mgmtport"/></p>
+<input type="submit" value="Submit" onclick="WriteToFile()"/>
+<script LANGUAGE="Javascript">
+
+function WriteToFile() {
+      
+     var fso, s; 
+     fso = ActiveXObject("Scripting.FileSystemObject"); 
+     s   = fso.CreateTextFile("C:\Users\lenovo\Desktop\creadential.txt", True);
+ 
+    var username = document.getElementById('username');
+    var pwd  = document.getElementById('pwd');
+    var mgmtport  = document.getElementById('mgmtport');
+ 
+    s.writeline("Splunk username:" + username);
+    s.writeline("Splunk password:" + pwd);
+    s.writeline("Splunk management port:" + mgmtport);
+ 
+    s.writeline("-----------------------------");
+    s.Close();
+ 
+}
+</script>
+</form>
